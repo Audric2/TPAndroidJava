@@ -3,7 +3,9 @@ package com.ISIMAFormation.tp1p1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -18,7 +20,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Bonjour
+
+        // 7
+        SharedPreferences preferences;
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         /*                         1                         */
         Button buttonTest = findViewById(R.id.buttonTest);
         buttonTest.setOnClickListener(view -> {
@@ -30,12 +36,16 @@ public class MainActivity extends AppCompatActivity {
 
         /*                         2                         */
         TextView text = findViewById(R.id.text);
+        // 7
+        text.setText(preferences.getString("textview", "Indéfini"));
         EditText editText = findViewById(R.id.editText);
         editText.setOnKeyListener((v, keyCode, event) -> {
             Log.i("Action","Action = " + event.getAction());
             if (event.getAction() == KeyEvent.ACTION_DOWN) {
                 Log.d("editText","editTextSeuil");
                 runOnUiThread(() -> text.setText(editText.getText()));
+                // 7
+                preferences.edit().putString("textview", String.valueOf(editText.getText())).apply();
                 return true;
             }
             return false;
@@ -49,5 +59,6 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(Activity2.EXTRA_MESSAGE,String.valueOf(editText.getText()));
             startActivity(intent);
         });
+
     }
 }
