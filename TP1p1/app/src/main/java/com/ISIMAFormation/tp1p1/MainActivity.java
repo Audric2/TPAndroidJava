@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 7
+        /*                         7                         */
         SharedPreferences preferences;
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -36,16 +36,14 @@ public class MainActivity extends AppCompatActivity {
 
         /*                         2                         */
         TextView text = findViewById(R.id.text);
-        // 7
-        text.setText(preferences.getString("textview", "Indéfini"));
+        text.setText(preferences.getString("textview", "Indéfini"));// 7
         EditText editText = findViewById(R.id.editText);
         editText.setOnKeyListener((v, keyCode, event) -> {
             Log.i("Action","Action = " + event.getAction());
             if (event.getAction() == KeyEvent.ACTION_DOWN) {
                 Log.d("editText","editTextSeuil");
                 runOnUiThread(() -> text.setText(editText.getText()));
-                // 7
-                preferences.edit().putString("textview", String.valueOf(editText.getText())).apply();
+                preferences.edit().putString("textview", String.valueOf(editText.getText())).apply();//7
                 return true;
             }
             return false;
