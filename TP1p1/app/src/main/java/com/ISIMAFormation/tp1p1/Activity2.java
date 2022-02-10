@@ -145,7 +145,9 @@ public class Activity2 extends AppCompatActivity {
             try {
                 JSONArray jsonArry = _json.getJSONArray("Liste");
                 n = jsonArry.length();
-            } catch (JSONException e) {}
+            } catch (JSONException e) {
+                return 0;
+            }
             return n;
         }
     }
