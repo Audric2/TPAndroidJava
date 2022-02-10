@@ -26,17 +26,17 @@ public class WebViewActivity extends AppCompatActivity {
             }
         });
 
+        // Paramétrage webview
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        myWebView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
-            }
-        });
-
+        myWebView.setWebViewClient(new WebViewClient());
         myWebView.addJavascriptInterface(new WebViewInterface(this), "Java");
+
+        // Chargement de la page
         //myWebView.loadUrl("https://www.isima.fr/");
         myWebView.loadUrl("file:///android_asset/www/index.html");
+
+        // Masquage de la toolbar
+        getSupportActionBar().hide();
     }
 }
