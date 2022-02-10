@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,7 +24,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
-import java.util.concurrent.Executor;
 
 
 public class Activity2 extends AppCompatActivity {
@@ -46,10 +43,10 @@ public class Activity2 extends AppCompatActivity {
         }
 
         /*                        3.5                        */
-        Button buttonGoBack = findViewById(R.id.buttonGoBack);
+        Button buttonGoBack = findViewById(R.id.buttonWebview);
         buttonGoBack.setOnClickListener(view -> {
-            Log.i("ButtonLaunch","MainActivity<---");
-            finish();
+            Intent intentWebview = new Intent(this, WebViewActivity.class);
+            startActivity(intentWebview);
         });
 
         /*                         4                         */

@@ -5,7 +5,7 @@
     <string name="ToastButton">effectivement c\'est un bouton</string>
     <string name="default_editText">Ecrire ici</string>
     <string name="default_text">le vide est ici</string>
-    <string name="buttonGoBack">Go Back</string>
+    <string name="buttonWebview">Webview</string>
     <string name="buttonShare">Partager</string>
     <string name="ShareTitle">Quelle application utilisée ?</string>
 </resources>
