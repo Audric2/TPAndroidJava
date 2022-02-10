@@ -1,4 +1,13 @@
 <h1>Bonjour ! Bienvenue chez moi !</h1>
+</head>
+<ul id="list">
+</ul>
 <script>
     Java.showToast("Bonsoir");
+    const jsonList = JSON.parse(Java.getJSON());
+    console.log(jsonList);
+    for (let prop of jsonList.Liste) {
+        document.getElementById('list').innerHTML += '<li>' + prop.name + " : " + prop.property + '</li>';
+        console.log("List : " + prop);
+    }
 </script>
